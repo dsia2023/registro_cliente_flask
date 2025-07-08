@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}{{ producto.nombre }} - Detalle{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}" class="img-fluid rounded shadow-sm mb-4" style="max-height: 300px; object-fit: contain;">
+
+    </div>
+    <div class="col-md-6">
+      <h2>{{ producto.nombre }}</h2>
+      <p class="text-muted">Categoría: {{ producto.categoria }}</p>
+      <p>{{ producto.descripcion }}</p>
+      <h4 class="text-primary">{{ producto.precio|formatear_precio }}</h4>
+
+ 
+        <form method="POST" action="/agregar-carrito/{{ producto.id }}">
+        <div class="input-group mb-3" style="max-width: 200px;">
+            <input type="number" name="cantidad" class="form-control" min="1" value="1" required>
+            <button type="submit" class="btn btn-success">🛒 Agregar al carrito</button>
+        </div>
+        </form>
+
+        <a href="/productos" class="btn btn-outline-secondary mt-2">← Volver a Productos</a>
+
+    </div>
+  </div>
+</div>
+<hr class="my-5">
+
+{% if relacionados %}
+
+<h4 class="mb-4 text-secondary">🔁 Productos Relacionados</h4>
+<div class="row row-cols-2 row-cols-md-4 g-3">
+  {% for r in relacionados %}
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm related-product">
+        <a href="/productos/{{ r.id }}">
+          <img src="{{ url_for('static', filename='img/' ~ r.imagen) }}" class="card-img-top img-fluid" style="height: 140px; object-fit: cover;" alt="{{ r.nombre }}">
+        </a>
+        <div class="card-body p-2 text-center">
+          <h6 class="card-title mb-1" style="font-size: 0.85rem;">{{ r.nombre }}</h6>
+          <p class="text-muted small mb-1" style="font-size: 0.8rem;">{{  r.precio|formatear_precio }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .related-product {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .related-product:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+</style>
+{% endif %}
+
+{% endblock %}

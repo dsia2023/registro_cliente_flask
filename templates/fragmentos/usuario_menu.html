@@ -1,0 +1,59 @@
+<!-- 🔐 Menú de Usuario y Admin -->
+<ul class="navbar-nav align-items-center gap-2">
+
+  {% if session.get("cliente") %}
+  <!-- 👤 Cliente -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+      <i class="bi bi-person-circle"></i> {{ session.cliente }}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><a class="dropdown-item" href="/mis-compras">Mis Compras</a></li>
+      <li><a class="dropdown-item" href="/perfil">Mi Perfil</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-danger" href="/logout">Cerrar sesión</a></li>
+    </ul>
+  </li>
+
+  {% if session.get("admin") %}
+  <!-- ⚙️ Admin -->
+  <li class="nav-item dropdown position-relative">
+    <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+      <i class="bi bi-gear-fill fs-5"></i>
+      {% if session.get("mensajes_nuevos", 0) > 0 %}
+      <span class="position-absolute top-0 start-100 translate-middle badge bg-danger rounded-circle" style="font-size: 0.6rem; padding: 4px;">
+        ●
+      </span>
+      {% endif %}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><h6 class="dropdown-header">Administrador</h6></li>
+      <li><a class="dropdown-item" href="/admin/productos">➕ Productos</a></li>
+      <li><a class="dropdown-item" href="/admin/categorias">📂 Categorías</a></li>
+      <li><a class="dropdown-item" href="/admin/mensajes">📬 Mensajes</a></li>
+    </ul>
+  </li>
+  {% endif %}
+
+  {% else %}
+  <!-- 🔓 No logueado -->
+  <li class="nav-item">
+    <button class="btn btn-sm btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar sesión</button>
+  </li>
+  <li class="nav-item">
+    <a href="/register" class="btn btn-sm btn-outline-light">Registro</a>
+  </li>
+  {% endif %}
+
+  <!-- 🛒 Carrito -->
+  <li class="nav-item position-relative">
+    <a href="/carrito" class="nav-link text-white">
+      <i class="bi bi-cart4 fs-5"></i>
+      {% if session.get("carrito") %}
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {{ session["carrito"]|length }}
+      </span>
+      {% endif %}
+    </a>
+  </li>
+</ul>

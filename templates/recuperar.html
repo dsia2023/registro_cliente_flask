@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Recuperar Contraseña{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Recuperar Contraseña</h2>
+    <form method="POST" action="/recuperar">
+      <div class="mb-3">
+        <label for="rut" class="form-label">Ingresa tu RUT</label>
+        <input type="text" class="form-control" id="rut" name="rut" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Recuperar</button>
+    </form>
+  </div>
+{% endblock %}
+
+
+

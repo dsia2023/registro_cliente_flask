@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Editar Categoría{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Editar Categoría</h2>
+
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" name="nombre" value="{{ categoria.nombre }}" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">PDF de especificaciones</label>
+      <input type="file" name="pdf" class="form-control" accept=".pdf">
+      {% if categoria.especificaciones_pdf %}
+        <div class="mt-2">
+          Archivo actual:
+          <a href="{{ url_for('static', filename='pdf/' ~ categoria.especificaciones_pdf) }}" target="_blank">
+            {{ categoria.especificaciones_pdf }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+    <button class="btn btn-success">Guardar Cambios</button>
+    <a href="/admin/categorias" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>|
+{% endblock %}

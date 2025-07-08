@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Categorías - Admin{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Categorías</h2>
+
+  <!-- 🟢 Formulario para agregar -->
+ <!-- 🟢 Formulario para agregar -->
+<form method="POST" action="/admin/categorias/agregar" enctype="multipart/form-data" class="row g-3 mb-4">
+  <div class="col-auto">
+    <input type="text" name="nombre" class="form-control" placeholder="Nueva categoría" required>
+  </div>
+  <div class="col-auto">
+    <input type="file" name="pdf" accept=".pdf" class="form-control" title="Especificaciones PDF (opcional)">
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-success">Agregar</button>
+  </div>
+</form>
+
+  <!-- 📋 Lista -->
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cat in categorias %}
+      <tr>
+            <td>{{ cat.id }}</td>
+                <td>{{ cat.nombre }}</td>
+                    <td>
+                        <td>
+                            <!-- ✅ Editar -->
+                            <a href="/admin/categorias/editar/{{ cat.id }}" class="btn btn-sm btn-warning me-2">Editar</a>
+
+                            <!-- 🔴 Eliminar -->
+                            <a href="/admin/categorias/eliminar/{{ cat.id }}" class="btn btn-sm btn-danger"
+                                onclick="return confirm('¿Estás seguro de eliminar esta categoría?')">Eliminar</a>
+                        </td>       
+                    </td>
+
+            </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

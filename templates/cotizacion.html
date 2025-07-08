@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Cotización - ALLTAK Chile{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5" style="max-width: 900px; background: white; padding: 30px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h3 class="mb-0">🧾 Cotización</h3>
+      <small class="text-muted">Fecha: {{ fecha|default(datetime.utcnow().strftime('%d/%m/%Y')) }}</small><br>
+      <small class="text-muted">Cliente: {{ cliente }}</small>
+    </div>
+    <div>
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="height: 60px;">
+    </div>
+  </div>
+
+  <hr>
+
+  <table class="table table-bordered align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Producto</th>
+        <th class="text-center">Cantidad</th>
+        <th class="text-end">Precio Unitario</th>
+        <th class="text-end">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in carrito %}
+      <tr>
+        <td>
+          <strong>{{ item.nombre }}</strong>
+          <div>
+            <img src="{{ url_for('static', filename='img/' ~ item.imagen) }}" alt="{{ item.nombre }}" style="height: 50px;">
+          </div>
+        </td>
+        <td class="text-center">{{ item.cantidad }}</td>
+        <td class="text-end">${{ item.precio | formatear_precio }}</td>
+        <td class="text-end">${{ (item.precio * item.cantidad) | formatear_precio }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot class="table-light">
+      <tr>
+        <td colspan="3" class="text-end"><strong>Total</strong></td>
+        <td class="text-end"><strong>${{ total | formatear_precio }}</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="mt-4 text-end">
+    <a href="/" class="btn btn-secondary">Volver al inicio</a>
+    <button class="btn btn-success" onclick="window.print()">Imprimir</button>
+  </div>
+</div>
+
+{% endblock %}

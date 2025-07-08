@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - ALLTAK Chile{% endblock %}
+
+{% block content %}
+
+<!-- 🔄 Carrusel de bienvenida -->
+<div id="carruselInicio" class="carousel slide mb-5 shadow" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ url_for('static', filename='img/slide1.jpg') }}" class="d-block w-100" alt="Slide 1">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='img/slide2.jpg') }}" class="d-block w-100" alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='img/slide3.jpg') }}" class="d-block w-100" alt="Slide 3">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- 👋 Nosotros -->
+<section class="container py-5" id="nosotros">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <div id="galeriaNosotros" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded shadow">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='img/nosotros1.jpg') }}" class="d-block w-100" alt="Foto 1">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/nosotros2.jpg') }}" class="d-block w-100" alt="Foto 2">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/nosotros3.jpg') }}" class="d-block w-100" alt="Foto 3">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/nosotros4.jpg') }}" class="d-block w-100" alt="Foto 4">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galeriaNosotros" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galeriaNosotros" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos representantes oficiales de <strong>ALLTAK Chile</strong>, especialistas en vinilos decorativos, automotrices e industriales. Entregamos soluciones innovadoras con cobertura nacional.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 🛍️ Nuestros Productos (estilo carrusel horizontal animado) -->
+<section class="container py-5">
+  <h2 class="mb-4 text-center">Nuestros Productos</h2>
+
+  <div id="slider-productos" class="d-flex overflow-auto gap-3 px-2" style="scroll-behavior: smooth;">
+    {% for p in productos %}
+    <div class="card producto-slider-card flex-shrink-0" style="min-width: 220px; transition: transform 0.3s;">
+      <a href="/productos/{{ p.id }}">
+        <img src="{{ url_for('static', filename='img/' ~ p.imagen) }}" class="card-img-top" alt="{{ p.nombre }}">
+      </a>
+      <div class="card-body text-center">
+        <h6 class="card-title mb-1">{{ p.nombre }}</h6>
+        <a href="/productos/{{ p.id }}" class="btn btn-sm btn-outline-primary">Ver más</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById('slider-productos');
+  let scrollX = 0;
+  let intervalo;
+
+  function autoScroll() {
+    if (!slider) return;
+    scrollX += 220;
+    if (scrollX >= slider.scrollWidth - slider.clientWidth) {
+      scrollX = 0;
+    }
+    slider.scrollTo({ left: scrollX, behavior: 'smooth' });
+  }
+
+  function iniciarScroll() {
+    intervalo = setInterval(autoScroll, 3000);
+  }
+
+  function detenerScroll() {
+    clearInterval(intervalo);
+  }
+
+  if (slider) {
+    iniciarScroll();
+    slider.addEventListener("mouseenter", detenerScroll);
+    slider.addEventListener("mouseleave", iniciarScroll);
+  }
+</script>
+
+{% endblock %}
+

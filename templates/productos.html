@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Productos - Mi Empresa{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+
+   <!-- 🔹 SIDEBAR de categorías -->
+<!-- 🔹 SIDEBAR de categorías (reparado) -->
+<aside class="col-md-3 mb-4">
+  <h5 class="mb-3">Categorías</h5>
+  <ul class="list-group">
+    <li class="list-group-item {% if not seleccionada %}active{% endif %}">
+      <a class="text-decoration-none d-block {% if not seleccionada %}text-white{% endif %}" href="/productos">Todas</a>
+    </li>
+    {% for cat in categorias %}
+    <li class="list-group-item {% if seleccionada == cat.id %}active{% endif %}">
+      <a class="text-decoration-none d-block {% if seleccionada == cat.id %}text-white{% endif %}"
+         href="/productos?categoria={{ cat.id }}{% if buscar %}&buscar={{ buscar }}{% endif %}{% if orden %}&orden={{ orden }}{% endif %}">
+        {{ cat.nombre }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</aside>
+
+
+
+    <!-- 🔸 SECCIÓN productos -->
+    <section class="col-md-9">
+
+      
+      <!-- 🔍 Búsqueda -->
+      <form id="form-busqueda" class="mb-3" method="GET" action="/productos">
+        <div class="input-group">
+          <input type="text" name="buscar" class="form-control" placeholder="Buscar productos..." value="{{ buscar }}">
+          {% if seleccionada %}
+            <input type="hidden" name="categoria" value="{{ seleccionada }}">
+          {% endif %}
+          <button class="btn btn-primary" type="submit">Buscar</button>
+        </div>
+      </form>
+
+
+      <!-- 🔽 Ordenar -->
+      <div class="mb-3 d-flex justify-content-end">
+        <select id="ordenar" class="form-select w-auto" name="orden" onchange="document.getElementById('form-busqueda').submit();">
+          <option value="">Ordenar por...</option>
+          <option value="nombre_asc" {% if orden == 'nombre_asc' %}selected{% endif %}>Nombre A–Z</option>
+          <option value="nombre_desc" {% if orden == 'nombre_desc' %}selected{% endif %}>Nombre Z–A</option>
+          <option value="nuevo" {% if orden == 'nuevo' %}selected{% endif %}>Más recientes</option>
+          <option value="viejo" {% if orden == 'viejo' %}selected{% endif %}>Más antiguos</option>
+        </select>
+      </div>
+<!-- 🏷️ Título dinámico según categoría o búsqueda -->
+      <div class="mb-4">
+        {% if seleccionada %}
+          <h4>Productos en la categoría: 
+            <strong>
+              {{ categorias | selectattr("id", "equalto", seleccionada) | map(attribute="nombre") | first }}
+            </strong>
+          </h4>
+        {% elif buscar %}
+          <h4>Resultados para: <strong>"{{ buscar }}"</strong></h4>
+        {% else %}
+          <h4>Todos los productos</h4>
+        {% endif %}
+      </div>
+
+      <!-- 🛒 Lista de productos -->
+      <div class="row">
+        {% if productos %}
+          {% for p in productos %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <a href="/productos/{{ p.id }}">
+                <img src="{{ url_for('static', filename='img/' ~ p.imagen) }}" class="card-img-top" alt="{{ p.nombre }}">
+              </a>
+             
+
+              
+              <div class="card-body">
+                <h5 class="card-title">{{ p.nombre }}</h5>
+                <p class="card-text">{{ p.descripcion[:80] }}...</p>
+                <p class="card-text fw-bold text-primary">{{ p.precio|formatear_precio }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="alert alert-info">No se encontraron productos con esos filtros.</div>
+        {% endif %}
+      </div>
+
+    </section>
+  </div>
+</div>
+{% endblock %}

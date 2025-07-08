@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Mensajes de Contacto - Admin{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">📬 Mensajes Recibidos</h2>
+
+  {% if mensajes %}
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+     <thead class="table-primary">
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Mensaje</th>
+    <th>Fecha</th>
+    <th>Acción</th>
+  </tr>
+</thead>
+<tbody>
+  {% for m in mensajes %}
+  <tr>
+    <td>{{ m.nombre }}</td>
+    <td><a href="mailto:{{ m.correo }}">{{ m.correo }}</a></td>
+    <td>{{ m.mensaje }}</td>
+    <td>{{ m.fecha.strftime('%d-%m-%Y %H:%M') }}</td>
+    <td>
+      <form action="/admin/mensajes/eliminar/{{ m.id }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este mensaje?');">
+        <button class="btn btn-sm btn-danger" title="Eliminar">
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+
+  </div>
+  {% else %}
+    <div class="alert alert-info">No hay mensajes aún.</div>
+  {% endif %}
+</div>
+{% endblock %}

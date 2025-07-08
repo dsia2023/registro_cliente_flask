@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Pago Exitoso{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+  <h2 class="text-success mb-4">✅ ¡Gracias por tu compra!</h2>
+  <p class="lead">Tu orden <strong>N°{{ orden_id }}</strong> fue registrada con un total de <strong>${{ total }}</strong>.</p>
+  <a href="/" class="btn btn-primary mt-3">Volver al inicio</a>
+</div>
+{% endblock %}
+

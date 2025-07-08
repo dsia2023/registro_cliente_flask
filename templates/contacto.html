@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Contacto - ALLTAK Chile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Contáctanos</h2>
+
+ <form action="/contacto" method="POST">
+  <div class="row g-3">
+    <div class="col-12">
+      <label class="form-label">Nombre</label>
+      <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="col-12">
+      <label class="form-label">Correo electrónico</label>
+      <input type="email" name="correo" class="form-control" required>
+    </div>
+    <div class="col-12">
+      <label class="form-label">Mensaje</label>
+      <textarea name="mensaje" rows="4" class="form-control" required></textarea>
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn btn-success">Enviar mensaje</button>
+    </div>
+  </div>
+</form>
+
+</div>
+{% endblock %}

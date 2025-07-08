@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Registro - Mi Empresa{% endblock %}
+
+{% block content %}
+
+<style>
+  .card-registro {
+    max-width: 500px;
+    margin: auto;
+    animation: aparecer 0.7s ease;
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-registro i {
+    color: #0d6efd;
+    margin-right: 6px;
+  }
+</style>
+
+<script>
+  function limpiarRut(rut) {
+    return rut.replace(/[^\dkK]/gi, '').toUpperCase();
+  }
+
+  function validarRut(rutCompleto) {
+    rutCompleto = limpiarRut(rutCompleto);
+    if (rutCompleto.length < 2) return false;
+
+    const cuerpo = rutCompleto.slice(0, -1);
+    const dv = rutCompleto.slice(-1).toUpperCase();
+
+    if (!/^\d+$/.test(cuerpo)) return false;
+
+    let suma = 0;
+    let multiplo = 2;
+    for (let i = cuerpo.length - 1; i >= 0; i--) {
+      suma += parseInt(cuerpo.charAt(i)) * multiplo;
+      multiplo = multiplo === 7 ? 2 : multiplo + 1;
+    }
+
+    const resto = suma % 11;
+    const dvEsperado = resto === 0 ? '0' : resto === 1 ? 'K' : String(11 - resto);
+
+    return dv === dvEsperado;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const rutInput = document.querySelector("input[name='rut']");
+    const form = rutInput.closest("form");
+
+    const mensaje = document.createElement("div");
+    mensaje.style.fontSize = "0.9em";
+    rutInput.parentNode.insertBefore(mensaje, rutInput.nextSibling);
+
+    rutInput.addEventListener("input", () => {
+      const rut = rutInput.value;
+      if (rut.length >= 8) {
+        if (validarRut(rut)) {
+          mensaje.textContent = "✅ RUT válido";
+          mensaje.style.color = "green";
+        } else {
+          mensaje.textContent = "❌ RUT inválido";
+          mensaje.style.color = "red";
+        }
+      } else {
+        mensaje.textContent = "";
+      }
+    });
+
+    form.addEventListener("submit", (e) => {
+      const rut = rutInput.value;
+      if (!validarRut(rut)) {
+        e.preventDefault();
+        mensaje.textContent = "❌ El RUT ingresado no es válido";
+        mensaje.style.color = "red";
+        rutInput.focus();
+      }
+    });
+  });
+</script>
+
+<div class="card shadow card-registro mt-5 p-4 border-0">
+  <h3 class="text-center mb-4">📝 Registro de Usuario</h3>
+  <form method="POST" action="/register" autocomplete="off">
+    <div class="mb-3">
+      <label for="rut" class="form-label"><i class="bi bi-person-badge"></i>RUT</label>
+      <input type="text" class="form-control" id="rut" name="rut" required autocomplete="off">
+    </div>
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label"><i class="bi bi-person-fill"></i>Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="direccion" class="form-label"><i class="bi bi-geo-alt-fill"></i>Dirección</label>
+      <input type="text" class="form-control" id="direccion" name="direccion" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="correo" class="form-label"><i class="bi bi-envelope-fill"></i>Correo electrónico</label>
+      <input type="email" class="form-control" id="correo" name="correo" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="telefono" class="form-label"><i class="bi bi-telephone-fill"></i>Teléfono</label>
+      <input type="text" class="form-control" id="telefono" name="telefono" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label"><i class="bi bi-lock-fill"></i>Contraseña</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Registrarme</button>
+  </form>
+</div>
+
+{% endblock %}

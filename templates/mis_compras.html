@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Mis Compras{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">Mis Compras</h2>
+
+  {% if ordenes %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Orden N°</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for orden in ordenes %}
+      <tr>
+        <td>{{ orden.id }}</td>
+        <td>{{ orden.fecha.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>${{ orden.total }}</td>
+        <td>
+          <a href="/mis-compras/{{ orden.id }}" class="btn btn-sm btn-outline-primary">Ver Detalle</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No tienes compras registradas aún.</p>
+  {% endif %}
+</div>
+{% endblock %}

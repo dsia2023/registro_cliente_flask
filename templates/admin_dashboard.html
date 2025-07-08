@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Panel de Administración{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">🔐 Panel de Administración</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <a href="/admin/mensajes" class="btn btn-outline-primary w-100">
+        📬 Ver Mensajes de Contacto
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="/admin/productos" class="btn btn-outline-success w-100">
+        📦 Ver Productos
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="/admin/productos/nuevo" class="btn btn-outline-info w-100">
+        ➕ Agregar Producto
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="/admin/clientes" class="btn btn-outline-dark w-100">
+        👥 Ver Clientes Registrados
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Detalle de Compra{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2>Detalle de la Orden N°{{ orden.id }}</h2>
+  <p><strong>Fecha:</strong> {{ orden.fecha.strftime('%Y-%m-%d %H:%M') }}</p>
+  <p><strong>Total:</strong> ${{ orden.total }}</p>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in detalles %}
+      <tr>
+        <td>{{ item.nombre_producto }}</td>
+        <td>${{ item.precio_unitario }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>${{ item.precio_unitario * item.cantidad }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="/mis-compras" class="btn btn-outline-secondary mt-3">Volver</a>
+</div>
+{% endblock %}

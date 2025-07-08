@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">Mi Perfil</h2>
+
+  {% with mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+      <div class="alert alert-success">{{ mensajes[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input type="text" name="nombre" value="{{ usuario.nombre }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Dirección</label>
+      <input type="text" name="direccion" value="{{ usuario.direccion }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label>Teléfono</label>
+      <input type="text" name="telefono" value="{{ usuario.telefono }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label>Correo Electronico</label>
+      <input type="text" name="correo" value="{{ usuario.correo }}" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label>Nueva Contraseña</label>
+      <input type="password" name="password" class="form-control" placeholder="(dejar vacío para no cambiar)">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Nosotros - ALLTAK Chile{% endblock %}
+
+{% block head_extra %}
+<style>
+.carousel-item.bg-marca {
+  position: relative;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.carousel-item.bg-marca::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url("{{ url_for('static', filename='img/marca_agua.png') }}");
+  background-repeat: repeat;
+  background-size: 100px;
+  opacity: 0.05;  /* Marca de agua casi transparente */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.carousel-item.bg-marca img {
+  position: relative;
+  z-index: 1;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <!-- Título -->
+  <h2 class="text-center fw-bold mb-4">¿Quiénes Somos?</h2>
+
+  <!-- Texto institucional -->
+  <div class="mb-5">
+    <p class="text-justify">
+      Alltak, uno de los principales fabricantes del segmento de autoadhesivos de Brasil.
+    </p>
+    <p class="text-justify">
+      Se destaca una gran calidad de nuestros productos, texturas, innovación, nuevas tecnologías, moldeabilidad y sobre todo el brillo, lo que consolida la marca cada vez más en el segmento de países de América del Sur, América del Norte y Europa.
+    </p>
+    <p class="text-justify mt-4">
+      Además de su compromiso con sus clientes, Alltak se ha comprometido a construir un futuro sostenible para las nuevas generaciones y ha creado su Planta de Reciclaje. Otro avance sostenible en su historia.
+    </p>
+    <p class="text-justify">
+      Instalado en el interior de la propia fábrica, el Centro de Reciclaje procesa recortes y materiales comprados a otras empresas que se transforman para dar lugar a nuevos productos. Sus procesos son rigurosos y garantizan siempre la más alta calidad de los productos Alko®, una de las primeras empresas de plásticos de Brasil en tener un almacén interno dedicado al reciclaje y que siempre está a la vanguardia en temas de sustentabilidad.
+    </p>
+    <p class="text-justify">
+      El resultado es un ahorro anual de más de <strong>1.800 toneladas de insumos salvados de la naturaleza</strong>.
+    </p>
+  </div>
+
+  <!-- Carrusel de presentación con texto en fondo degradado y negrita -->
+  <div id="carruselEmpresa" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner rounded-3 shadow">
+
+      {% for i in range(1, 7) %}
+      <div class="carousel-item {% if i == 1 %}active{% endif %}" style="position:relative; background:#000;">
+        <img src="{{ url_for('static', filename='img/foto' ~ i ~ '.jpg') }}"
+             class="d-block w-100 rounded border shadow"
+             alt="Foto {{ i }}"
+             style="max-height: 500px; object-fit: cover;">
+        <div style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 20px 15px;
+          background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+          color: #fff;
+          font-weight: bold;
+          text-align: center;
+          z-index: 10;
+          text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+        ">
+          {% if i == 1 %}
+            <h2 class="fw-bold">Bienvenido a ALLTAK Chile</h2>
+            <p class="fw-bold">Soluciones en vinilos con calidad garantizada.</p>
+          {% elif i == 2 %}
+            <h2 class="fw-bold">Expertos en Personalización</h2>
+            <p class="fw-bold">Transformamos tus ideas en proyectos reales.</p>
+          {% elif i == 3 %}
+            <h2 class="fw-bold">Materiales de Alta Gama</h2>
+            <p class="fw-bold">Durabilidad, colores vivos y tecnología de punta.</p>
+          {% elif i == 4 %}
+            <h2 class="fw-bold">Cobertura Nacional</h2>
+            <p class="fw-bold">Atendemos en todo Chile con rapidez y compromiso.</p>
+          {% elif i == 5 %}
+            <h2 class="fw-bold">Clientes Felices</h2>
+            <p class="fw-bold">Más de 1.000 proyectos exitosos entregados.</p>
+          {% elif i == 6 %}
+            <h2 class="fw-bold">Contáctanos Hoy</h2>
+            <p class="fw-bold">Haz tu cotización sin compromiso.</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselEmpresa" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselEmpresa" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+</div>
+{% endblock %}
+
+
+
+

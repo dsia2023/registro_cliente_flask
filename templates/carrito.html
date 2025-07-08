@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Carrito{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2>Carrito de Compras</h2>
+
+  {% if carrito %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in carrito %}
+        <tr>
+          <td>{{ item.nombre }}</td>
+          <td>${{ item.precio }}</td>
+          <td>{{ item.cantidad }}</td>
+          <td>${{ item.precio * item.cantidad }}</td>
+          <td>
+            <a href="/eliminar/{{ item.id }}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h4 class="text-end">Total: ${{ total }}</h4>
+  
+      
+    <div class="d-flex justify-content-between">
+    <a href="/productos" class="btn btn-outline-secondary">Seguir comprando</a>
+
+
+  <!--  {% if session.get('cliente') %}
+      <a href="/cotizacion" class="btn btn-success">
+        <i class="bi bi-file-earmark-pdf"></i> Generar Cotización
+      </a>
+    {% else %}
+      <a href="/register" class="btn btn-warning">
+        <i class="bi bi-person-plus"></i> Regístrate para cotizar
+      </a>
+    {% endif %}-->
+
+    
+    <a href="/carrito/vaciar" class="btn btn-danger">Vaciar carrito</a>
+    <a href="/pago" class="btn btn-success">Ir a pagar</a>
+    
+    </div>
+
+  {% else %}
+    <p>No hay productos en el carrito.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+<script>
+  setTimeout(() => {
+    const alert = document.querySelector(".alert");
+    if (alert) {
+      alert.classList.add("fade");
+      setTimeout(() => alert.remove(), 500);
+    }
+  }, 3000); // 3 segundos
+</script>

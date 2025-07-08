@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Agregar Producto{% endblock %}
+
+
+{% if producto %}
+  <h2 class="mb-4">✏️ Editar Producto</h2>
+{% else %}
+  <h2 class="mb-4">➕ Agregar Nuevo Producto</h2>
+{% endif %}
+
+
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4">➕ Agregar Nuevo Producto</h2>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" name="nombre" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <textarea name="descripcion" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Precio</label>
+      <input type="number" name="precio" class="form-control" step="0.01" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Imagen (nombre del archivo en /static/img/)</label>
+        <div class="input-group">
+            <input type="text" name="imagen" id="imagenInput" class="form-control" required
+                value="{{ producto.imagen if producto }}">
+            <input type="file" id="fileSelector" class="d-none" accept="image/*" onchange="copiarNombreImagen(this)">
+            <button type="button" class="btn btn-outline-secondary"
+                onclick="document.getElementById('fileSelector').click()">
+                📂 Buscar
+            </button>
+        </div>
+        <div id="verificacionImagen" class="mt-1 small text-muted"></div>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <select name="id_categoria" class="form-select" required>
+        {% for cat in categorias %}
+        <option value="{{ cat.id }}">{{ cat.nombre }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+    <a href="/admin" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}
