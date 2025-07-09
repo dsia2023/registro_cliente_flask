@@ -364,26 +364,24 @@ nav.navbar {
   filter: brightness(1.1);
 }
 
-.carousel-item.bg-marca {
-  position: relative;
-  background-color: #000;
-  overflow: hidden;
+/* Menú personalizado con fondo negro y texto azul marino */
+.navbar-personalizado {
+  background-color: #000000; /* fondo negro */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.carousel-item.bg-marca::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: url("/static/img/marca_agua.png");
-  background-repeat: repeat;
-  background-size: 100px;
-  opacity: 0.05;  /* Muy baja opacidad para casi transparencia */
-  pointer-events: none;
-  z-index: 0;
+.navbar-personalizado .nav-link {
+  color: #003366 !important; /* azul marino */
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.carousel-item.bg-marca img {
-  position: relative;
-  z-index: 1;
+.navbar-personalizado .nav-link:hover {
+  color: #ffffff !important; /* blanco al pasar el mouse */
+}
+
+.navbar-personalizado .navbar-brand {
+  color: #ffffff !important; /* marca blanca */
+  font-size: 1.3rem;
 }

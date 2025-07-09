@@ -5260,3 +5260,169 @@
 2025-07-08 05:09:38,415 [INFO] 127.0.0.1 - - [08/Jul/2025 05:09:38] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
 2025-07-08 05:09:38,417 [INFO] 127.0.0.1 - - [08/Jul/2025 05:09:38] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
 2025-07-08 05:09:38,420 [INFO] 127.0.0.1 - - [08/Jul/2025 05:09:38] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:52:54,852 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 06:52:54,853 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-08 06:52:54,855 [INFO]  * Restarting with stat
+2025-07-08 06:52:56,055 [WARNING]  * Debugger is active!
+2025-07-08 06:52:56,059 [INFO]  * Debugger PIN: 987-146-279
+2025-07-08 06:52:59,910 [INFO] 127.0.0.1 - - [08/Jul/2025 06:52:59] "GET / HTTP/1.1" 200 -
+2025-07-08 06:53:00,287 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,299 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/slide1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,301 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/slide2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,303 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/slide3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,310 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/nosotros1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,524 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,611 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/marca_agua.png HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,661 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/nosotros2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,669 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/nosotros3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,677 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/nosotros4.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,685 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,844 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,937 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,987 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:00,988 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:00] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:01,001 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:01] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:01,004 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:01] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:01,162 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:01] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:53:01,256 [INFO] 127.0.0.1 - - [08/Jul/2025 06:53:01] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:13,616 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:13] "GET /productos/7 HTTP/1.1" 200 -
+2025-07-08 06:54:13,736 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:13] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 06:54:13,844 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:13] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 06:54:13,972 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:13] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:13,976 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:13] "[36mGET /static/img/marca_agua.png HTTP/1.1[0m" 304 -
+2025-07-08 06:54:17,635 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:17] "GET /productos HTTP/1.1" 200 -
+2025-07-08 06:54:18,254 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,255 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,256 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,259 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,259 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,259 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,585 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,588 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,588 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,589 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:18,592 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:18] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:19,721 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:19] "GET /productos/11 HTTP/1.1" 200 -
+2025-07-08 06:54:19,834 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:19] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 06:54:19,981 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:19] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 06:54:20,082 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:20] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:20,083 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:20] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:20,084 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:20] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:20,086 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:20] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:32,548 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "GET /productos HTTP/1.1" 200 -
+2025-07-08 06:54:32,732 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 06:54:32,799 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:32,918 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:32,919 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:32,921 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:32,921 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:32] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 06:54:33,054 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:33] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:33,110 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:33] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:33,230 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:33] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:33,242 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:33] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:33,243 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:33] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,412 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "GET / HTTP/1.1" 200 -
+2025-07-08 06:54:35,570 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,651 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,765 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,768 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,769 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,769 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,880 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:35,959 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:35] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,091 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,093 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,094 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,096 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/slide1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,198 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/slide2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,276 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/slide3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,403 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/nosotros1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,404 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/nosotros2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,419 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/nosotros3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 06:54:36,421 [INFO] 127.0.0.1 - - [08/Jul/2025 06:54:36] "[36mGET /static/img/nosotros4.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:23,662 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 19:56:23,662 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-08 19:56:23,665 [INFO]  * Restarting with stat
+2025-07-08 19:56:24,831 [WARNING]  * Debugger is active!
+2025-07-08 19:56:24,835 [INFO]  * Debugger PIN: 987-146-279
+2025-07-08 19:56:39,711 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:39] "GET / HTTP/1.1" 200 -
+2025-07-08 19:56:40,323 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:40] "GET /static/css/estilos.css HTTP/1.1" 200 -
+2025-07-08 19:56:40,414 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:40] "[36mGET /static/img/logo.png HTTP/1.1[0m" 304 -
+2025-07-08 19:56:40,648 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:40] "[36mGET /static/img/nosotros2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:40,712 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:40] "[36mGET /static/img/slide1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:40,894 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:40] "[36mGET /static/img/marca_agua.png HTTP/1.1[0m" 304 -
+2025-07-08 19:56:40,991 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:40] "[36mGET /static/img/slide2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,010 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/nosotros3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,025 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/nosotros1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,075 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/nosotros4.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,147 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/slide3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,215 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,308 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,322 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,336 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,388 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,470 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,534 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,629 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,640 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 19:56:41,725 [INFO] 127.0.0.1 - - [08/Jul/2025 19:56:41] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 20:08:00,148 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-08 20:08:00,149 [INFO] [33mPress CTRL+C to quit[0m
+2025-07-08 20:08:00,152 [INFO]  * Restarting with stat
+2025-07-08 20:08:01,488 [WARNING]  * Debugger is active!
+2025-07-08 20:08:01,492 [INFO]  * Debugger PIN: 987-146-279
+2025-07-08 20:08:17,301 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "GET / HTTP/1.1" 200 -
+2025-07-08 20:08:17,657 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 20:08:17,671 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "[36mGET /static/img/slide2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:17,680 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "[36mGET /static/img/nosotros1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:17,681 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "[36mGET /static/img/slide3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:17,976 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "[36mGET /static/img/marca_agua.png HTTP/1.1[0m" 304 -
+2025-07-08 20:08:17,990 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:17] "[36mGET /static/img/nosotros2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,000 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/nosotros3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,015 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/nosotros4.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,039 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "GET /static/img/logo.png HTTP/1.1" 200 -
+2025-07-08 20:08:18,153 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/slide1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,297 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,331 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,332 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,334 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,377 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,469 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,615 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,663 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,663 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:08:18,665 [INFO] 127.0.0.1 - - [08/Jul/2025 20:08:18] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-08 20:11:35,569 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "GET /nosotros HTTP/1.1" 200 -
+2025-07-08 20:11:35,613 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-08 20:11:35,635 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/img/logo.png HTTP/1.1[0m" 304 -
+2025-07-08 20:11:35,917 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/img/marca_agua.png HTTP/1.1[0m" 304 -
+2025-07-08 20:11:35,983 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/img/foto2.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:11:35,998 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/img/foto4.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:11:35,999 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/img/foto5.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:11:36,000 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:35] "[36mGET /static/img/foto3.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:11:36,010 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:36] "[36mGET /static/img/foto1.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:11:36,288 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:36] "[36mGET /static/img/foto6.jpg HTTP/1.1[0m" 304 -
+2025-07-08 20:11:36,474 [INFO] 127.0.0.1 - - [08/Jul/2025 20:11:36] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,296 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "GET / HTTP/1.1" 200 -
+2025-07-09 00:31:30,356 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/css/estilos.css HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,673 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/img/slide2.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,673 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/img/logo.png HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,676 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/img/slide1.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,677 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/img/slide3.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,678 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/img/nosotros1.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:30,697 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:30] "[36mGET /static/img/nosotros2.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,011 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/vinilo_azul.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,012 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/nosotros4.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,018 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/nosotros3.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,041 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/negro_brillante.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,049 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/transparente.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,064 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/SATIN-RED-18S32.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,359 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/JATEADO-BEIGE-18J82.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,359 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/SATIN-BROWN-METALLIC_cod.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,362 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/JATEADO-BLUE-METALLIC-18J196M.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,378 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/JATEADO-YELLOW-18J21.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,381 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/JATEADO-NAVY-BLUE-METALLIC-18J192M.jpg HTTP/1.1[0m" 304 -
+2025-07-09 00:31:31,532 [INFO] 127.0.0.1 - - [09/Jul/2025 00:31:31] "[36mGET /static/img/logo_fondo.png HTTP/1.1[0m" 304 -
