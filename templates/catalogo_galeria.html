@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Catálogo Digital - ALLTAK Chile{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">📖 Catálogo Digital de Productos</h2>
+
+<!-- ✅ Botón oculto que abre GLightbox automáticamente -->
+<a href="{{ url_for('static', filename='img/' ~ productos[0].imagen) }}"
+   class="glightbox" data-gallery="catalogo" data-title="{{ productos[0].nombre }}" id="abrirCatalogo" style="display: none;">
+</a>
+
+<!-- ✅ Todas las imágenes del catálogo (ocultas pero registradas en la galería) -->
+{% for p in productos[1:] %}
+  <a href="{{ url_for('static', filename='img/' ~ p.imagen) }}"
+     class="glightbox" data-gallery="catalogo" data-title="{{ p.nombre }}" style="display: none;"></a>
+{% endfor %}
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = GLightbox({ selector: 'glightbox' });
+    document.getElementById("abrirCatalogo").click();  // 🔁 Abrir automáticamente
+  });
+</script>
+{% endblock %}
+
+

@@ -432,12 +432,6 @@ def producto_detalle(id):
 
     return render_template("producto_detalle.html", producto=producto, relacionados=relacionados)
 
-@app.template_filter('formatear_precio')
-def formatear_precio(valor):
-    return f"${int(valor):,}".replace(",", ".")  # 1000000 → $1.000.000
-
-
-
 @app.route("/mis-compras")
 def mis_compras():
     if "cliente" not in session:
@@ -992,6 +986,131 @@ def logout():
     session.clear()
     session["carrito"] = carrito
     return redirect("/")
+
+@app.route("/galeria")
+def galeria():
+    categoria_id = request.args.get("categoria", type=int)
+    cursor = db.cursor(dictionary=True)
+
+    # Todas las categorías
+    cursor.execute("SELECT * FROM categorias")
+    categorias = cursor.fetchall()
+
+    # Productos filtrados (si hay filtro)
+    if categoria_id:
+        cursor.execute("SELECT nombre, imagen, id_categoria FROM productos WHERE id_categoria = %s", (categoria_id,))
+    else:
+        cursor.execute("SELECT nombre, imagen, id_categoria FROM productos")
+    productos = cursor.fetchall()
+
+    return render_template("galeria.html", productos=productos, categorias=categorias, seleccionada=categoria_id)
+
+
+
+@app.template_filter('formatear_precio')
+def formatear_precio(valor):
+    return f"${int(valor):,}".replace(",", ".")  # 1000000 → $1.000.000
+
+
+@app.route("/catalogo")
+def catalogo():
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM productos")
+    productos = cursor.fetchall()
+    return render_template("catalogo.html", productos=productos)
+
+
+
+@app.route("/catalogo")
+def catalogo_digital():
+    buscar = request.args.get("buscar", "").strip()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM categorias ORDER BY nombre")
+    categorias = cursor.fetchall()
+
+    catalogo = []
+    for cat in categorias:
+        if buscar:
+            cursor.execute("""
+                SELECT * FROM productos
+                WHERE id_categoria = %s AND nombre LIKE %s
+            """, (cat["id"], f"%{buscar}%"))
+        else:
+            cursor.execute("SELECT * FROM productos WHERE id_categoria = %s", (cat["id"],))
+        productos = cursor.fetchall()
+        if productos:
+            catalogo.append({
+                "nombre": cat["nombre"],
+                "productos": productos
+            })
+
+    return render_template("catalogo.html", catalogo=catalogo, buscar=buscar)
+
+
+@app.route("/catalogo/pdf")
+def catalogo_pdf():
+    from io import BytesIO
+    from flask import send_file
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.units import cm
+
+    buffer = BytesIO()
+    pdf = canvas.Canvas(buffer, pagesize=A4)
+    width, height = A4
+    y = height - 50
+
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM categorias ORDER BY nombre")
+    categorias = cursor.fetchall()
+
+    pdf.setFont("Helvetica-Bold", 16)
+    pdf.drawString(40, y, "Catálogo de Productos - ALLTAK Chile")
+    y -= 40
+
+    for cat in categorias:
+        pdf.setFont("Helvetica-Bold", 12)
+        pdf.drawString(40, y, cat["nombre"])
+        y -= 20
+
+        cursor.execute("SELECT * FROM productos WHERE id_categoria = %s", (cat["id"],))
+        productos = cursor.fetchall()
+
+        pdf.setFont("Helvetica", 10)
+        for p in productos:
+            texto = f"- {p['nombre']} - ${p['precio']:,}".replace(",", ".")
+            pdf.drawString(60, y, texto)
+            y -= 15
+            if y < 50:
+                pdf.showPage()
+                y = height - 50
+
+    pdf.save()
+    buffer.seek(0)
+    return send_file(buffer, as_attachment=False, download_name="catalogo.pdf", mimetype="application/pdf")
+
+@app.route("/catalogo")
+def catalogo_galeria():
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM categorias ORDER BY nombre")
+    categorias = cursor.fetchall()
+
+    galeria = []
+    for cat in categorias:
+        cursor.execute("SELECT * FROM productos WHERE id_categoria = %s", (cat["id"],))
+        productos = cursor.fetchall()
+        for p in productos:
+            galeria.append({
+                "imagen": p["imagen"],
+                "nombre": p["nombre"],
+                "categoria": cat["nombre"]
+            })
+
+    return render_template("catalogo_galeria.html", galeria=galeria, auto_open=True)
+
+
+
+
 
 
 

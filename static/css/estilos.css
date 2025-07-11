@@ -359,10 +359,7 @@ nav.navbar {
   border-radius: 50%;
 }
 
-.logo-navbar:hover {
-  transform: scale(1.05);     /* Efecto zoom al pasar el mouse */
-  filter: brightness(1.1);
-}
+
 
 /* Menú personalizado con fondo negro y texto azul marino */
 .navbar-personalizado {
@@ -384,4 +381,113 @@ nav.navbar {
 .navbar-personalizado .navbar-brand {
   color: #ffffff !important; /* marca blanca */
   font-size: 1.3rem;
+}
+
+
+
+.btn-outline-primary:hover {
+  background-color: WHITE;
+  color: #003366;
+  box-shadow: 0 0 5px rgba(0, 51, 102, 0.7);
+}
+
+
+.btn-outline-primary {
+  border-color: #003366;           /* Azul marino */
+  color: white;
+  background-color: #003366;
+  transition: all 0.3s ease;
+}
+
+
+.fondo-sesion::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75); /* Blanco semitransparente */
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.fondo-sesion .modal-content {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  box-shadow: none;
+}
+
+
+.navbar .btn-primary {
+  background-color: #004080;  /* Azul marino */
+  border: none;
+}
+
+.navbar .btn-primary:hover {
+  background-color: #002b5e;
+  color: #fff;
+}
+
+.seccion-nosotros {
+  font-weight: bold;
+  color: #ffffff; /* blanco */
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.contenido-con-fondo {
+  background-image: url("/static/img/fondo_sesion.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.95); /* Semitransparente para que se lea bien */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.barra-lateral {
+  background-color: #001f3f; /* Azul marino */
+  background-image: url('../img/fondo_lateral.png'); /* Puedes cambiar la imagen o eliminar esta línea */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 100%;
+}
+.marca-agua {
+  background-image: url("../img/marca_agua.png");
+  background-repeat: repeat; /* 🔁 Mosaico */
+  background-size: 100px auto; /* Ajusta el tamaño del patrón */
+  background-position: top left;
+  background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 80px; /* evita tapar la barra de menú */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background-image: url("../img/marca_agua.png");
+  background-repeat: repeat;
+  background-size: 160px;
+  opacity: 0.10;
+  z-index: -1;
+  pointer-events: none;
+}
+.galeria-card {
+  overflow: hidden;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.galeria-card:hover {
+  transform: scale(1.03);
+}
+
+.fondo-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Galería - ALLTAK Chile{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">Galería de Productos</h2>
+
+  <!-- 🔘 Filtro de categoría -->
+  <div class="text-center mb-4">
+    <form method="get">
+      <select name="categoria" class="form-select d-inline-block w-auto" onchange="this.form.submit()">
+        <option value="">Todas las categorías</option>
+        {% for cat in categorias %}
+          <option value="{{ cat.id }}" {% if cat.id == seleccionada %}selected{% endif %}>{{ cat.nombre }}</option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+
+  <!-- 📷 Galería -->
+  <div class="row g-3 justify-content-center">
+    {% for producto in productos %}
+    <div class="col-md-4 col-sm-6 galeria-item producto-animado">
+      <a href="{{ url_for('static', filename='img/' ~ producto.imagen) }}"
+         class="glightbox" data-gallery="galeria"
+         data-title="{{ producto.nombre }}">
+        <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}"
+             class="img-fluid rounded shadow-sm"
+             alt="{{ producto.nombre }}">
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+

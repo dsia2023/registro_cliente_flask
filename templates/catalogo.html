@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Catálogo Digital{% endblock %}
+
+{% block content %}
+<!-- Esto es invisible, pero carga el lightbox automáticamente -->
+<div id="galeria-catalogo" style="display: none;">
+  {% for p in productos %}
+     <a href="{{ url_for('static', filename='img/' ~ p.imagen) }}" class="glightbox"
+       data-gallery="catalogo" data-title="{{ p.nombre }}">
+       <img src="{{ url_for('static', filename='img/' ~ p.imagen) }}" alt="{{ p.nombre }}">
+    </a>
+  {% endfor %}
+
+
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true
+    });
+
+    // Abre la galería automáticamente al cargar
+    setTimeout(() => {
+      const primer = document.querySelector(".glightbox");
+      if (primer) primer.click();
+    }, 500);
+  });
+</script>
+{% endblock %}
+
+
+
+
