@@ -1,41 +1,38 @@
 {% extends "base.html" %}
-{% block title %}Productos - Admin{% endblock %}
+{% block title %}Administrar Productos{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <h2 class="mb-4">📦 Lista de Productos</h2>
-  <a href="/admin/productos/nuevo" class="btn btn-success mb-3">➕ Nuevo Producto</a>
+<div class="container py-4">
+  <h2 class="mb-4">Administrar Productos</h2>
+  <a href="/admin/productos/nuevo" class="btn btn-primary mb-3">Agregar nuevo producto</a>
 
-  <div class="table-responsive">
-    <table class="table table-striped align-middle">
-      <thead class="table-light">
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Categoría</th>
-          <th>Precio</th>
-          <th>Imagen</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for p in productos %}
-        <tr>
-          <td>{{ p.id }}</td>
-          <td>{{ p.nombre }}</td>
-          <td>{{ p.categoria }}</td>
-          <td>${{ p.precio }}</td>
-          <td><img src="{{ url_for('static', filename='img/' ~ p.imagen) }}" width="60"></td>
-          <td>
-            <a href="/admin/productos/{{ p.id }}/editar" class="btn btn-sm btn-warning">✏️ Editar</a>
-            <form action="/admin/productos/{{ p.id }}/eliminar" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este producto?');">
-              <button class="btn btn-sm btn-danger">🗑 Eliminar</button>
-            </form>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Categoría</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in productos %}
+      <tr>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.precio | formatear_precio }}</td>
+        <td><img src="{{ url_for('static', filename='img/' ~ p.imagen) }}" width="60"></td>
+        <td>{{ p.categoria }}</td>
+        <td>
+          <a href="/admin/productos/{{ p.id }}/editar" class="btn btn-sm btn-warning">Editar</a>
+          <form action="/admin/productos/{{ p.id }}/eliminar" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-sm btn-danger"
+              onclick="return confirm('¿Estás seguro de eliminar este producto?')">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}

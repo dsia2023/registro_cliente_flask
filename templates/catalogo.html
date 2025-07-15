@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Esto es invisible, pero carga el lightbox automáticamente -->
-<div id="galeria-catalogo" style="display: none;">
+<div id="catalogo_galeria" style="display: none;">
   {% for p in productos %}
      <a href="{{ url_for('static', filename='img/' ~ p.imagen) }}" class="glightbox"
        data-gallery="catalogo" data-title="{{ p.nombre }}">

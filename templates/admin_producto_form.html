@@ -1,61 +1,95 @@
 {% extends "base.html" %}
-{% block title %}Agregar Producto{% endblock %}
-
-
-{% if producto %}
-  <h2 class="mb-4">✏️ Editar Producto</h2>
-{% else %}
-  <h2 class="mb-4">➕ Agregar Nuevo Producto</h2>
-{% endif %}
-
-
+{% block title %}{{ 'Editar' if producto else 'Nuevo' }} Producto{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <h2 class="mb-4">➕ Agregar Nuevo Producto</h2>
+<div class="container py-4">
+  <h2 class="mb-4">{{ 'Editar' if producto else 'Nuevo' }} Producto</h2>
 
-  <form method="POST">
+  <form method="POST" action="" enctype="multipart/form-data">
     <div class="mb-3">
-      <label class="form-label">Nombre</label>
-      <input type="text" name="nombre" class="form-control" required>
+      <label>Nombre</label>
+      <input type="text" name="nombre" class="form-control"
+             value="{{ producto.nombre if producto else '' }}" required>
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Descripción</label>
-      <textarea name="descripcion" class="form-control" rows="3"></textarea>
+      <label>Descripción</label>
+      <textarea name="descripcion" class="form-control" required>{{ producto.descripcion if producto else '' }}</textarea>
     </div>
 
     <div class="mb-3">
-      <label class="form-label">Precio</label>
-      <input type="number" name="precio" class="form-control" step="0.01" required>
+      <label>Precio</label>
+      <input type="number" name="precio" class="form-control"
+             value="{{ producto.precio if producto else '' }}" required>
     </div>
 
-    <div class="mb-3">
-        <label class="form-label">Imagen (nombre del archivo en /static/img/)</label>
-        <div class="input-group">
-            <input type="text" name="imagen" id="imagenInput" class="form-control" required
-                value="{{ producto.imagen if producto }}">
-            <input type="file" id="fileSelector" class="d-none" accept="image/*" onchange="copiarNombreImagen(this)">
-            <button type="button" class="btn btn-outline-secondary"
-                onclick="document.getElementById('fileSelector').click()">
-                📂 Buscar
-            </button>
-        </div>
-        <div id="verificacionImagen" class="mt-1 small text-muted"></div>
-    </div>
+<div class="mb-3">
+  <label>Imagen</label>
+  <div class="input-group">
+    <input type="text" id="imagenInput" name="imagen" class="form-control"
+           value="{{ producto.imagen if producto else '' }}" readonly>
+    <input type="file" class="form-control" onchange="copiarNombreImagen(this)">
+  </div>
+  <div id="verificacionImagen" class="form-text text-muted"></div>
+  <div id="previewImagen" class="mt-3">
+    {% if producto and producto.imagen %}
+      <img src="{{ url_for('static', filename='img/' ~ producto.imagen) }}"
+           alt="Vista previa"
+           style="max-width: 200px; border: 1px solid #ccc;">
+    {% endif %}
+  </div>
+</div>
 
+<script>
+    function copiarNombreImagen(input) {
+      const archivo = input.files[0];
+      const inputNombre = document.getElementById("imagenInput");
+      const preview = document.getElementById("previewImagen");
+      const verificacion = document.getElementById("verificacionImagen");
+  
+      if (archivo) {
+        inputNombre.value = archivo.name;
+  
+        // Vista previa
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.innerHTML = `<img src="${e.target.result}" style="max-width: 200px; border: 1px solid #ccc;">`;
+        };
+        reader.readAsDataURL(archivo);
+  
+        // Verificación si la imagen ya existe en /static/img/
+        const ruta = "/static/img/" + archivo.name;
+        fetch(ruta, { method: "HEAD" })
+          .then(response => {
+            if (response.ok) {
+              verificacion.innerHTML = "✅ Imagen encontrada en <code>/static/img/</code>";
+              verificacion.className = "text-success small";
+            } else {
+              verificacion.innerHTML = "⚠️ Imagen no existe en <code>/static/img/</code>. Recuerda subirla.";
+              verificacion.className = "text-warning small";
+            }
+          }).catch(() => {
+            verificacion.innerHTML = "⚠️ No se pudo verificar la imagen.";
+            verificacion.className = "text-danger small";
+          });
+      }
+    }
+  </script>
+  
+      <div class="mb-3">
+        <label>Categoría</label>
+        <select name="id_categoria" class="form-select">
+          {% for categoria in categorias %}
+            <option value="{{ categoria.id }}"
+              {% if producto and producto.id_categoria == categoria.id %}selected{% endif %}>
+              {{ categoria.nombre }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
 
-    <div class="mb-3">
-      <label class="form-label">Categoría</label>
-      <select name="id_categoria" class="form-select" required>
-        {% for cat in categorias %}
-        <option value="{{ cat.id }}">{{ cat.nombre }}</option>
-        {% endfor %}
-      </select>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar Producto</button>
-    <a href="/admin" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="/admin/productos" class="btn btn-secondary">Cancelar</a>
   </form>
 </div>
 {% endblock %}

@@ -3,7 +3,6 @@ import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mail import Mail, Message  # ← IMPORTACIÓN CORRECTA
 from itsdangerous import URLSafeTimedSerializer
-from flask import flash
 import re
 from datetime import datetime
 import logging
@@ -292,7 +291,7 @@ def nuevo_producto():
             print("❌ Error al agregar producto:", e)
             flash("❌ No se pudo agregar el producto.")
 
-    return render_template("admin_producto_form.html", categorias=categorias)
+    return render_template("admin_producto_form.html", categorias=categorias, producto=None)
 
 
 @app.route("/login", methods=["POST"])

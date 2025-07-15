@@ -12,6 +12,41 @@
 
   <!-- GLightbox CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+   <style>
+    /* Marca de agua en todo el fondo con opacidad baja */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('{{ url_for('static', filename='img/marca_agua.png') }}');
+      background-repeat: repeat;
+      background-size: auto;
+      opacity: 0.25;
+      z-index: -1;
+    }
+
+    body {
+      background-color: #ffffff;
+    }
+ </style>
+
+  {% if marca_agua %}
+  <style>
+    body {
+      background-image: url("{{ url_for('static', filename='img/' ~ marca_agua) }}");
+      background-repeat: repeat;
+      background-size: contain;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  </style>
+  {% endif %}
+
+ 
 </head>
 
 <body>
@@ -31,30 +66,47 @@
   {% endwith %}
 
   <!-- ✅ NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="/">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" height="60" class="me-2">
-        <span class="fw-bold">ALLTAK Chile</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="menu">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="/productos">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" href="/catalogo">Catálogo</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-        </ul>
-        {% include "fragmentos/usuario_menu.html" %}
-      </div>
+ <!-- ✅ NAVBAR dinámico -->
+   
+<!-- ✅ NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" height="60" class="me-2">
+      <span class="fw-bold">ALLTAK Chile</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav gap-3 align-items-center">
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="/productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/catalogo">Catalogo</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+
+        {% if not session.get("cliente") %}
+          <!-- 🔵 Botones Inicio de Sesión y Registro -->
+          <li class="nav-item">
+            <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a href="/register" class="btn btn-primary btn-sm">Registro</a>
+          </li>
+        {% else %}
+          <!-- 👤 Menú Usuario -->
+          {% include "fragmentos/usuario_menu.html" %}
+        {% endif %}
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!-- ✅ CONTENIDO -->
-  <main class="container py-5">
+  <main class="contenido-borde container py-5">
     {% block content %}{% endblock %}
   </main>
 
@@ -64,6 +116,74 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <!-- 💬 WhatsApp -->
+<a href="https://wa.me/56931068214" target="_blank" class="whatsapp-float" title="¿Necesitas ayuda? Escríbenos por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 26px;
+    padding: 14px 16px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.2s;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>-->
+
+
+
+
+  
+  <!-- 🔒 MODAL DE LOGIN -->
+
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered fondo sesion">
+    <div class="modal-content">
+      <form method="POST" action="/login">
+        <div class="modal-header">
+          <h5 class="modal-title">Iniciar Sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">RUT</label>
+            <input type="text" name="rut" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+          <a href="/recuperar" class="btn btn-link px-0">¿Olvidaste tu contraseña?</a>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Ingresar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Wp5sXtX76-1DAy18QFnJr";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script> 
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
   <!-- 🎬 Animaciones para productos -->
   <script>
@@ -89,5 +209,21 @@
       transform: translateY(0);
     }
   </style>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    });
+
+    document.querySelectorAll('.bloque-nosotros.animado').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
 </body>
 </html>
