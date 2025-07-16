@@ -10,6 +10,32 @@
     margin-bottom: 30px; */
 /*}*/
 
+
+.contenido-bordel {
+  border: 5px solid #dee3e8;
+  border-radius: 10px;
+  padding: 30px;
+  /* Fondo con imagen + capa oscura */
+ 
+  /* Fondo con imagen + capa oscura */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("../img/slide3.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.85);
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .bloque-nosotros.animado {
   opacity: 0;
   transform: translateX(50px);
@@ -134,20 +160,59 @@ input[type="submit"] {
   }
 }
 
-/* 🎨 Estilo decorativo y moderno para todas las páginas */
+/* 🎨 Estilo decorativo y moderno para todas las páginas 
 .contenido-borde {
-  border: 5px solid #dee3e8; /* Azul marino oscuro */
+  border: 5px solid #dee3e8;  Azul marino oscuro 
   border-radius: 10px;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.85); /* fondo blanco semi-transparente */
+  background-color: rgba(255, 255, 255, 0.85); 
+  /*background-image: url("../img/fondo_inicio.jpg");  ← Agrega tu imagen 
+  background-image: url("../img/fondo_lateral.png");
+  background-size: cover;          Cubre todo el bloque 
+  background-repeat: no-repeat;
+  background-position: center;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px); /* efecto moderno tipo vidrio */
+  backdrop-filter: blur(4px);      efecto moderno tipo vidrio 
+  margin-top: 30px;
+  margin-bottom: 30px; */
+/*}*/
+
+.contenido-borde {
+  border: 5px solid #dee3e8;
+  border-radius: 10px;
+  padding: 30px;
+
+  /* Fondo con imagen + capa oscura */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("../img/fondo_inicio.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.85);
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
 
+.carrusel-alto .carousel-item img {
+  height: 800px; /* ajusta a tu gusto */
+  object-fit: cover;
+}
 
+
+.contenido-bordel {
+  border: 5px solid #dee3e8;
+  border-radius: 10px;
+  padding: 30px; 
+}
 
 input[type="submit"]:hover {
     background-color: #1a5edb;
@@ -450,7 +515,7 @@ nav.navbar {
   padding: 5px 6px;
   font-size: 10px;
   background: red;
-  color: white;
+  color: rgb(255, 255, 255);
   border-radius: 50%;
 }
 
@@ -541,42 +606,31 @@ nav.navbar {
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
-.fondo-inicio {
-  background-image: url("../img/fondo_inicio.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 300px;
-  opacity: 0.05;
-  min-height: 600px;
-}
 
 .inicio-fondo {
-  border: 5px solid red;
   background-image: url("../img/fondo_inicio.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* efecto de paralaje */
+  background-attachment: fixed;
   min-height: 100vh;
   padding: 3rem;
   box-sizing: border-box;
 }
-.inicio-fondo::before {
+
+/*.inicio-fondo::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.4); /* Oscurece el fondo */
-  z-index: 0;
+  /*z-index: 0;
 }
 
 .inicio-fondo > * {
   position: relative;
   z-index: 1;
-}
-
-
-
+}*/
 
 .barra-lateral {
   background-color: #001f3f; /* Azul marino */
@@ -588,6 +642,7 @@ nav.navbar {
   border-radius: 8px;
   min-height: 100%;
 }
+
 .marca-agua {
   background-image: url("../img/marca_agua.png");
   background-repeat: repeat; /* 🔁 Mosaico */
@@ -655,4 +710,97 @@ body::before {
 
 .galeria-wrapper:hover .precio-hover {
   opacity: 1;
+}
+
+main.inicio-fondo {
+  background-image: url("../img/fondo_inicio.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.lateral-izquierdo, .lateral-derecho {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+}
+.sidebar-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sidebar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.sidebar-card h6 {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 5px;
+}
+
+
+.contenido-bordel {
+  border: 5px solid #dee3e8;
+  border-radius: 10px;
+  padding: 30px;
+
+  /* Fondo con imagen + capa oscura */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("../img/fondo_inicio.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.85);
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.barra-lateral {
+  background: linear-gradient(to bottom, #0d1f3f, #1c3c6e);
+  background-image: url("../img/fondo_inicio.jpg");
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  color: white;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px rgba(2, 10, 94, 0.407);
+}
+
+.barra-lateral h5 {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.barra-lateral .noticia {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.barra-lateral .noticia:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Animación suave al entrar en pantalla */
+.barra-lateral.animada {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.barra-lateral.animada.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

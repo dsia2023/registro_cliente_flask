@@ -99,16 +99,34 @@
           <!-- 👤 Menú Usuario -->
           {% include "fragmentos/usuario_menu.html" %}
         {% endif %}
+
       </ul>
     </div>
   </div>
 </nav>
 
+   <!-- ✅ LAYOUT CON BARRAS LATERALES -->
+  <div class="container-fluid px-4">
+    <div class="row gx-3">
+      <!-- Barra lateral -->
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="contenido-bordel p-2 rounded h-100">
+          {% include "fragmentos/lateral_izquierdo.html" %}
+        </div>
+      </div>
 
-  <!-- ✅ CONTENIDO -->
-  <main class="contenido-borde container py-5">
-    {% block content %}{% endblock %}
-  </main>
+      <!-- Contenido principal -->
+      <div class="col-lg-9">
+        <div class="contenido-borde p-2 rounded h-100">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
   <!-- ✅ FOOTER -->
   {% include "fragmentos/footer.html" %}
@@ -224,6 +242,22 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    });
+
+    const barra = document.querySelector(".barra-lateral.animada");
+    if (barra) observer.observe(barra);
+  });
+</script>
+
 
 </body>
 </html>

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}Inicio - ALLTAK Chile{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row">
+
+    <!-- 🔹 BARRA LATERAL IZQUIERDA -->
+    <aside class="col-md-3 d-none d-md-block">
+      <div class="p-3 bg-light rounded shadow-sm mb-4">
+        <h6 class="text-primary">🗞 Noticias</h6>
+        <ul class="list-unstyled small">
+          <li>🔸 Nuevos productos 2025</li>
+          <li>🔸 Rebajas especiales por temporada</li>
+          <li>🔸 Participación en ExpoVinilo</li>
+        </ul>
+      </div>
+
+      <div class="p-3 bg-light rounded shadow-sm">
+        <h6 class="text-primary">🎥 Video destacado</h6>
+        <iframe class="w-100 rounded" height="150" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </aside>
+
+    <!-- ✅ CONTENIDO PRINCIPAL CON BORDE -->
+    <main class="col-md-6 contenido-borde">
+      <!-- Carrusel -->
+      <div id="carruselEmpresa" class="carousel slide carousel-fade carrusel-borde mb-4" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-inner rounded-3 shadow">
+          {% for i in range(1, 7) %}
+          <div class="carousel-item {% if i == 1 %}active{% endif %}" style="background:#000;">
+            <img src="{{ url_for('static', filename='img/foto' ~ i ~ '.jpg') }}"
+                 class="d-block w-100 rounded border shadow"
+                 alt="Foto {{ i }}"
+                 style="max-height: 400px; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block">
+              {% if i == 1 %}
+                <h5 class="fw-bold">Bienvenido a ALLTAK Chile</h5>
+                <p>Soluciones en vinilos con calidad garantizada.</p>
+              {% elif i == 2 %}
+                <h5 class="fw-bold">Expertos en Personalización</h5>
+                <p>Transformamos tus ideas en proyectos reales.</p>
+              {% elif i == 3 %}
+                <h5 class="fw-bold">Materiales de Alta Gama</h5>
+                <p>Durabilidad, colores vivos y tecnología de punta.</p>
+              {% elif i == 4 %}
+                <h5 class="fw-bold">Cobertura Nacional</h5>
+                <p>Atendemos en todo Chile con rapidez y compromiso.</p>
+              {% elif i == 5 %}
+                <h5 class="fw-bold">Clientes Felices</h5>
+                <p>Más de 1.000 proyectos exitosos entregados.</p>
+              {% elif i == 6 %}
+                <h5 class="fw-bold">Contáctanos Hoy</h5>
+                <p>Haz tu cotización sin compromiso.</p>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselEmpresa" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselEmpresa" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <!-- Sección Nosotros -->
+      <section id="nosotros" class="mb-5">
+        <div class="row">
+          <div class="col-12">
+            <div class="bloque-nosotros p-4 rounded-4 shadow-lg text-white text-center"
+                 style="background: linear-gradient(145deg, #082042, #0d3c6b);">
+              <h2 class="fw-bold text-uppercase mb-3">¿Quiénes somos?</h2>
+              <p class="fs-6 lh-base text-light">
+                Representantes oficiales de <strong class="text-warning">ALLTAK Chile</strong>, 
+                especialistas en vinilos decorativos, automotrices e industriales. 
+                Entregamos soluciones innovadoras con cobertura nacional.
+              </p>
+              <a href="/nosotros" class="btn btn-warning mt-3">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Productos -->
+      <section>
+        <h4 class="text-center mb-3">Nuestros Productos</h4>
+        <div class="d-flex overflow-auto gap-3 px-2" style="scroll-behavior: smooth;">
+          {% for p in productos %}
+          <div class="card producto-slider-card flex-shrink-0" style="min-width: 200px;">
+            <a href="/productos/{{ p.id }}">
+              <img src="{{ url_for('static', filename='img/' ~ p.imagen) }}" class="card-img-top" alt="{{ p.nombre }}">
+            </a>
+            <div class="card-body text-center">
+              <h6 class="card-title">{{ p.nombre }}</h6>
+              <a href="/productos/{{ p.id }}" class="btn btn-sm btn-outline-primary">Ver más</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    <!-- 🔹 BARRA LATERAL DERECHA -->
+    <aside class="col-md-3 d-none d-md-block">
+      <div class="p-3 bg-light rounded shadow-sm mb-4">
+        <h6 class="text-primary">✅ Producto terminado</h6>
+        <img src="{{ url_for('static', filename='img/ejemplo_producto.jpg') }}" class="img-fluid rounded" alt="Ejemplo">
+        <p class="small text-muted mt-2">Vinilo en auto deportivo</p>
+      </div>
+
+      <div class="p-3 bg-light rounded shadow-sm">
+        <h6 class="text-primary">📲 Síguenos</h6>
+        <a href="#" class="btn btn-outline-primary btn-sm mb-1 w-100">Instagram</a>
+        <a href="#" class="btn btn-outline-dark btn-sm w-100">TikTok</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+{% endblock %}
