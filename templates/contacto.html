@@ -2,28 +2,79 @@
 {% block title %}Contacto - ALLTAK Chile{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-  <h2 class="mb-4">Contáctanos</h2>
+<style>
+  .campo-contacto {
+    background-color: #0a0a0a;
+    border: 1px solid #0d6efd;
+    color: white;
+    transition: box-shadow 0.3s ease;
+  }
+  .campo-contacto:focus {
+    outline: none;
+    box-shadow: 0 0 10px #0d6efd;
+    border-color: #0d6efd;
+    background-color: #111;
+    color: white;
+  }
+  .alert {
+    font-weight: bold;
+  }
+</style>
 
- <form action="/contacto" method="POST">
-  <div class="row g-3">
-    <div class="col-12">
-      <label class="form-label">Nombre</label>
-      <input type="text" name="nombre" class="form-control" required>
+
+<div class="container my-5">
+  <div class="card bg-dark text-white border border-primary shadow rounded-4">
+    <div class="card-header border-bottom border-primary text-center">
+      <h4 class="mb-0 d-flex justify-content-center align-items-center gap-2">
+        <i class="bi bi-envelope-paper-fill text-primary"></i>
+        Contáctanos
+      </h4>
     </div>
-    <div class="col-12">
-      <label class="form-label">Correo electrónico</label>
-      <input type="email" name="correo" class="form-control" required>
-    </div>
-    <div class="col-12">
-      <label class="form-label">Mensaje</label>
-      <textarea name="mensaje" rows="4" class="form-control" required></textarea>
-    </div>
-    <div class="col-12 text-end">
-      <button type="submit" class="btn btn-success">Enviar mensaje</button>
+    <div class="card-body">
+      <form method="POST" action="{{ url_for('enviar_mensaje') }}">
+        <!-- ✅ Alertas solo dentro del formulario -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="mb-4">
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <div class="mb-3">
+          <label for="nombre" class="form-label text-white">Nombre</label>
+          <input type="text" class="form-control campo-contacto" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="correo" class="form-label text-white">Correo Electrónico</label>
+          <input type="email" class="form-control campo-contacto" id="correo" name="correo" required>
+
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label text-white">Mensaje</label>
+          <textarea class="form-control campo-contacto" id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary btn-lg px-4 shadow-sm">
+            <i class="bi bi-send-fill me-2"></i>Enviar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
-</form>
-
 </div>
+<script>
+  setTimeout(() => {
+    const alert = document.querySelector('.alert');
+    if (alert) {
+      alert.classList.remove('show');
+      alert.classList.add('fade');
+    }
+  }, 4000); // 4 segundos
+</script>
 {% endblock %}

@@ -22,7 +22,7 @@
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
     ),
-    url("../img/slide3.jpg");
+   url("../img/slide3.jpg"); 
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,6 +47,15 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+.bloque-nosotros {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+
 
 .text-shadow {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
@@ -182,21 +191,20 @@ input[type="submit"] {
   border-radius: 10px;
   padding: 30px;
 
-  /* Fondo con imagen + capa oscura */
+  /* Fondo con imagen + capa oscura 
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
     ),
     url("../img/fondo_inicio.jpg");
+  background-color: rgb(255, 255, 255); 
+   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);  */
 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-blend-mode: overlay;
-  background-color: rgba(255, 255, 255, 0.85);
-
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -392,8 +400,6 @@ footer a:hover {
   transform: scale(1.2); /* Efecto zoom */
 }
 
-<style>
-  .social-icon {
 .social-icon {
   transition: transform 0.2s ease-in-out;
 }
@@ -519,6 +525,18 @@ nav.navbar {
   border-radius: 50%;
 }
 
+
+
+.navbar.bg-dark {
+  background: linear-gradient(to right, #000000, #111111); /* Fondo negro degradado */
+  border-bottom: 2px solid #0d6efd; /* Línea azul abajo */
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.navbar-brand img {
+  max-height: 200px;
+}
 
 
 /* Menú personalizado con fondo negro y texto azul marino */
@@ -776,7 +794,7 @@ main.inicio-fondo {
   border-radius: 12px;
   color: white;
   transition: all 0.4s ease;
-  box-shadow: 0 0 20px rgba(2, 10, 94, 0.407);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .barra-lateral h5 {
@@ -803,4 +821,436 @@ main.inicio-fondo {
 .barra-lateral.animada.visible {
   opacity: 1;
   transform: translateY(0);
+}
+#agente-virtual-inicio {
+  background: linear-gradient(to right, #e9f0ff, #ffffff);
+  border-radius: 12px;
+  padding: 40px;
+}
+#seccion-agente {
+  background: linear-gradient(to right, #f5faff, #ffffff);
+  border: 3px solid #dde7f2;
+}
+#botonAgente {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 999;
+  background: linear-gradient(135deg, #082042, #0d3c6b);
+  color: white;
+  border: none;
+  transition: transform 0.3s ease;
+}
+#botonAgente:hover {
+  transform: scale(1.1);
+}
+.seccion-agente-fondo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                    url("../img/fondo_agente.jpg");  /* Cambia el nombre si es necesario */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  padding: 60px 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.fondo-blanco-transparente {
+  background-color: rgba(255, 255, 255, 0.9); /* Contenedor con leve transparencia */
+  border-radius: 15px;
+  padding: 30px;
+}
+
+
+#valores {
+  color: #001f3f; /* Azul marino */
+}
+
+.valor-box {
+  background-color: #0c0c0c; /* fondo negro elegante */
+  color: #001f3f; /* texto azul marino */
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #082042;
+}
+
+.valor-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.valor-box h4 {
+  color: #003366; /* Azul más claro para títulos */
+  font-size: 1.3rem;
+}
+
+.valor-box p {
+  color: #d1d1d1; /* Texto gris claro */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
+.valor-cuadro {
+  background-color: #000; /* Fondo negro */
+  color: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  height: 100%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valor-cuadro:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+
+.valor-cuadro h5 {
+  color: #0d6efd; /* Azul Bootstrap */
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.valor-cuadro p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.valor-cuadro .icono-valor i {
+  font-size: 2.5rem;
+  color: #0d6efd;
+}
+
+
+
+
+.sombra-cuadro {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sombra-cuadro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 255, 100, 0.5);
+}
+
+
+/* Fondo degradado + línea azul abajo */
+.navbar-animada {
+  background: linear-gradient(to right, #000000, #111111);
+  position: relative;
+  border-bottom: 2px solid #0d6efd;
+  z-index: 10;
+}
+
+/* Línea azul decorativa a los lados */
+.linea-azul {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0d6efd, #0a58ca);
+  z-index: 5;
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.5);
+}
+.linea-azul.izquierda {
+  left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.linea-azul.derecha {
+  right: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Enlaces animados */
+.navbar-nav .nav-link {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: white !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #0d6efd;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* 🔷 Líneas horizontales decorativas arriba y abajo */
+.linea-horizontal {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #0d6efd, #00cfff);
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.5);
+  z-index: 5;
+}
+.linea-horizontal.arriba {
+  top: 0;
+}
+.linea-horizontal.abajo {
+  bottom: 0;
+}
+
+
+.linea-horizontal.total {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #0d6efd, #00cfff);
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
+  z-index: 5;
+}
+
+.linea-horizontal.total.arriba {
+  top: 0;
+}
+
+.linea-horizontal.total.abajo {
+  bottom: 0;
+}
+
+/* Logo animado con latido */
+.logo-animado {
+  height: 130px;
+  transition: transform 0.4s ease-in-out;
+  animation: latido 3s infinite ease-in-out;
+}
+
+
+.logo-animado-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  background-color: black;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  animation: logoResplandor 6s infinite alternate;
+}
+
+.logo-animado-footer {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+}
+
+.logo-borde-superior,
+.logo-borde-inferior,
+.logo-borde-lateral-izq,
+.logo-borde-lateral-der {
+  position: absolute;
+  background: linear-gradient(to right, #007bff, #00d4ff);
+  height: 4px;
+  width: 100%;
+  animation: resplandorAzul 3s infinite alternate;
+  z-index: 0;
+}
+
+.logo-borde-inferior {
+  bottom: 0;
+  left: 0;
+}
+.logo-borde-superior {
+  top: 0;
+  left: 0;
+}
+.logo-borde-lateral-izq {
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #007bff, #00d4ff);
+}
+.logo-borde-lateral-der {
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #007bff, #00d4ff);
+}
+
+@keyframes resplandorAzul {
+  from {
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(4px);
+  }
+}
+
+@keyframes logoResplandor {
+  from {
+    box-shadow: 0 0 15px #007bff;
+  }
+  to {
+    box-shadow: 0 0 30px #00d4ff;
+  }
+}
+
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.linea-horizontal.total::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.5), rgba(0, 195, 255, 0.5));
+  animation: moverLinea 4s linear infinite;
+}
+
+
+.linea-horizontalf {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #0d6efd, #00cfff);
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.5);
+  z-index: 5;
+}
+.linea-horizontalf.arriba {
+  top: 0;
+}
+.linea-horizontalf.abajo {
+  bottom: 0;
+}
+.footer-animado {
+  border-top: 4px solid #0d6efd;
+  border-bottom: 4px solid #0d6efd;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #000;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.footer-animado .linea-horizontal {
+  position: absolute;
+  height: 4px;
+  background: linear-gradient(to right, #0d6efd, #00bfff);
+  width: 100%;
+  z-index: 2;
+}
+
+.footer-animado .linea-horizontal.arriba {
+  top: 0;
+  left: 0;
+}
+
+.footer-animado .linea-horizontal.abajo {
+  bottom: 0;
+  left: 0;
+}
+
+.footer-animado .contenido-footer {
+  position: relative;
+  z-index: 3;
+}
+
+.footer-animado .social-icons i {
+  font-size: 1.8rem;
+  margin: 0 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-animado .social-icons i:hover {
+  color: #0d6efd;
+  transform: scale(1.2);
+}
+
+.enlace-footer {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.enlace-footer::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0d6efd;
+  transition: width 0.3s ease;
+}
+
+.enlace-footer:hover {
+  color: #0d6efd;
+}
+
+.enlace-footer:hover::after {
+  width: 100%;
+}
+/* ✅ Sombra azul para el modal */
+.modal-content {
+  box-shadow: 0 0 20px rgba(13, 110, 253, 0.4);
+  border-radius: 12px;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* ✅ Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.campo-contacto {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #0d6efd;
+  border-radius: 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.campo-contacto:focus {
+  background-color: #000;
+  color: #fff;
+  border-color: #66b2ff;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+.alert {
+  font-weight: 500;
+  border-radius: 0.6rem;
+  font-size: 0.95rem;
 }

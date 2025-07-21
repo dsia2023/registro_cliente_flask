@@ -1039,6 +1039,22 @@ def eliminar_categoria(id):
 
 
 
+
+
+
+@app.route('/nosotros')
+def nosotros():
+    valores = [
+        {"titulo": "Calidad", "descripcion": "Trabajamos con los mejores materiales para ofrecer acabados superiores."},
+        {"titulo": "Compromiso", "descripcion": "Nuestro equipo está comprometido con la satisfacción total del cliente."},
+        {"titulo": "Innovación", "descripcion": "Buscamos constantemente nuevas tecnologías y diseños."},
+        {"titulo": "Confianza", "descripcion": "Construimos relaciones sólidas basadas en la transparencia."},
+        {"titulo": "Eficiencia", "descripcion": "Optimizamos nuestros procesos para entregas rápidas y efectivas."},
+        {"titulo": "Pasión", "descripcion": "Amamos lo que hacemos y eso se refleja en cada trabajo terminado."},
+    ]
+    return render_template('nosotros.html', valores=valores)
+
+
    #  @app.route("/logout")
    #  def logout():
    # session.clear()
@@ -1057,6 +1073,11 @@ def logout():
 
 
 
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
 

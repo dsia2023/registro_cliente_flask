@@ -6,6 +6,8 @@ from itsdangerous import URLSafeTimedSerializer
 import re
 from datetime import datetime
 import logging
+import smtplib
+from email.mime.text import MIMEText
 
 app = Flask(__name__)  # ← CREA 'app' ANTES DE USAR 'app.config'
 
@@ -54,6 +56,44 @@ app.config['MAIL_PASSWORD'] = 'kxzr tffy wszu lcrf'  # ⚠️ clave de aplicaci�
 
 
 mail = Mail(app)
+
+
+
+@app.route("/enviar_mensaje", methods=["POST"])
+def enviar_mensaje():
+    nombre = request.form["nombre"]
+    correo = request.form["correo"]
+    mensaje = request.form["mensaje"]
+
+    contenido = f"Nombre: {nombre}\nCorreo: {correo}\n\nMensaje:\n{mensaje}"
+    asunto = "Nuevo mensaje desde el sitio ALLTAK Chile"
+
+    # Datos SMTP (ejemplo Gmail)
+    remitente = "francopyme2022@gmail.com"
+    destinatario = "godoygodoy1@msn.com"
+    password = "kxzr tffy wszu lcrf"
+
+    msg = MIMEText(contenido)
+    msg["Subject"] = asunto
+    msg["From"] = remitente
+    msg["To"] = destinatario
+
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(remitente, password)
+            smtp.send_message(msg)
+        flash("✅ Mensaje enviado con éxito", "success")
+    except Exception as e:
+        print(e)
+        flash("❌ Error al enviar mensaje", "danger")
+
+    return redirect("/")
+
+
+
+
+
+
 
 
 
@@ -159,7 +199,15 @@ def agregar_al_carrito(id):
 
 @app.route('/nosotros')
 def nosotros():
-    return render_template('nosotros.html')
+    valores = [
+        {"titulo": "Calidad", "descripcion": "Trabajamos con los mejores materiales para ofrecer acabados superiores."},
+        {"titulo": "Compromiso", "descripcion": "Nuestro equipo está comprometido con la satisfacción total del cliente."},
+        {"titulo": "Innovación", "descripcion": "Buscamos constantemente nuevas tecnologías y diseños."},
+        {"titulo": "Confianza", "descripcion": "Construimos relaciones sólidas basadas en la transparencia."},
+        {"titulo": "Eficiencia", "descripcion": "Optimizamos nuestros procesos para entregas rápidas y efectivas."},
+        {"titulo": "Pasión", "descripcion": "Amamos lo que hacemos y eso se refleja en cada trabajo terminado."},
+    ]
+    return render_template("nosotros.html", valores=valores)
 
 
 #@app.before_request
@@ -616,6 +664,7 @@ def productos_ajax():
 
 @app.route("/contacto", methods=["GET", "POST"])
 def contacto():
+    
     if request.method == "POST":
         nombre = request.form.get("nombre")
         correo = request.form.get("correo")
@@ -656,6 +705,56 @@ Mensaje:
 
     # Si GET, mostrar formulario
     return render_template("contacto.html")
+
+
+
+
+@app.route("/enviar_mensaje", methods=["POST"])
+def enviar_mensaje():
+    nombre = request.form["nombre"]
+    correo = request.form["correo"]
+    mensaje = request.form["mensaje"]
+
+
+     # Guardar mensaje en la base de datos
+    cursor = get_cursor()
+    sql = "INSERT INTO mensajes_contacto (nombre, correo, mensaje) VALUES (%s, %s, %s)"
+    cursor.execute(sql, (nombre, correo, mensaje))
+    db.commit()    
+
+
+
+
+
+
+
+    contenido = f"Nombre: {nombre}\nCorreo: {correo}\n\nMensaje:\n{mensaje}"
+    asunto = "Nuevo mensaje desde el sitio ALLTAK Chile"
+
+    # Datos SMTP (ejemplo Gmail)
+    remitente = "francopyme2022@gmail.com"
+    destinatario = "godoygodoy1@msn.com"
+    password = "kxzr tffy wszu lcrf"
+
+    msg = MIMEText(contenido)
+    msg["Subject"] = asunto
+    msg["From"] = remitente
+    msg["To"] = destinatario
+
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(remitente, password)
+            smtp.send_message(msg)
+        flash("✅ Mensaje enviado con éxito", "success")
+    except Exception as e:
+        print(e)
+        flash("❌ Error al enviar mensaje", "danger")
+
+    return redirect("/")
+
+
+
+
 
 
 @app.route("/admin/mensajes/eliminar/<int:id>", methods=["POST"])

@@ -1,59 +1,185 @@
+<!-- ✅ PIE DE PÁGINA COMPLETO -->
 <footer
-  class="text-md-start mt-5 pt-5 pb-3"
-  style="
-    background-color: #000307;
-    color: white;
-    background-image: url({{ url_for('static', filename='img/logo_fondo.png') }});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 300px;
-    opacity: 1;
-  ">
+  class="text-md-start mt-5 pt-5 pb-3 position-relative mt-auto"
+  style="background-color: #000307; color: white;
+         background-image: url('{{ url_for('static', filename='img/logo_fondo.png') }}');
+         background-repeat: no-repeat;
+         background-position: center center;
+         background-size: 300px;">
 
-  <div class="container">
-    <div class="row">
+    <!-- 🔷 Líneas decorativas -->
+    <div class="linea-horizontal total arriba"></div>
 
-      <!-- 🏢 Contacto -->
-      <div class="col-md-4 mb-4">
-        <h5 class="mb-3">Contacto</h5>
-        <p><i class="bi bi-geo-alt-fill me-2 text-white"></i>INDEPENDENCIA 1518, Santiago</p>
-        <p><i class="bi bi-envelope-fill me-2 text-white"></i>
-          <a href="mailto:contacto@amg-alltak.cl" class="text-white text-decoration-none">
-            contacto@amg-alltak.cl</a>
-        </p>
-        <p><i class="bi bi-telephone-fill me-2 text-white"></i>227327802 – 227324417</p>
-        <p><i class="bi bi-whatsapp me-2 text-white"></i>
-          <a href="https://wa.me/56993349975" class="text-white text-decoration-none" target="_blank">+56 9 9334 9975</a><br>
-          <a href="https://wa.me/56994454758" class="text-white text-decoration-none" target="_blank">+56 9 9445 4758</a>
-        </p>
+ 
+
+   <!-- 🔵 Logos animados a los lados del contenido -->
+    <div class="container mb-5">
+      <div class="d-flex justify-content-center align-items-center flex-wrap px-3">
+
+        <!-- Logo izquierdo -->
+        <div class="d-none d-lg-flex justify-content-center me-5">
+          <div class="logo-animado-wrapper">
+            <img src="{{ url_for('static', filename='img/images.png') }}" alt="Logo izquierda" class="logo-animado-footer">
+            <div class="logo-borde-superior"></div>
+            <div class="logo-borde-inferior"></div>
+            <div class="logo-borde-lateral-izq"></div>
+          </div>
+        </div>
+
+        <!-- Contenido central centrado y limitado -->
+        <div class="flex-grow-1" style="max-width: 960px;">
+          <div class="row text-center text-md-start g-4">
+
+            <!-- Contacto   -->
+           <div class="col-md-4 mb-4">
+              <h5 class="mb-3">Contacto</h5>
+              <p><i class="bi bi-geo-alt-fill me-2 text-white"></i>INDEPENDENCIA 1518, Santiago</p>
+              <p><i class="bi bi-envelope-fill me-2 text-white"></i>
+                <a href="mailto:contacto@amg-alltak.cl" class="text-white text-decoration-none">contacto@amg-alltak.cl</a>
+              </p>
+              <p><i class="bi bi-telephone-fill me-2 text-white"></i>227327802 – 227324417</p>
+              <p><i class="bi bi-whatsapp me-2 text-white"></i>
+                <a href="https://wa.me/56993349975" class="text-white text-decoration-none" target="_blank">+56 9 9334 9975</a><br>
+                <a href="https://wa.me/56994454758" class="text-white text-decoration-none" target="_blank">+56 9 9445 4758</a>
+              </p>
+
+              <!-- 🔘 Botón para desplegar el mapa -->
+              <div class="text-center mt-3">
+                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalMapa">
+                  Ver mapa
+                </button>
+              </div>
+
+              <!-- 📍 Mapa colapsable -->
+              <div class="collapse mt-3" id="mapaGoogle">
+                <div class="ratio ratio-4x3 border border-primary rounded">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.8786283551536!2d-70.6458426235427!3d-33.423038095025994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5912a48f2c1%3A0x6c4af927b787e179!2sIndependencia%201518%2C%20Santiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1721574900000!5m2!1ses-419!2scl"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+              </div>
+          </div>
+
+
+
+            <!-- Redes Sociales -->
+            <div class="col-md-4">
+              <h5 class="mb-3 text-center">Síguenos</h5>
+              <div class="d-flex justify-content-center gap-4">
+                <a href="https://facebook.com" target="_blank" class="text-white fs-3 social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" class="text-white fs-3 social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" class="text-white fs-3 social-icon"><i class="bi bi-youtube"></i></a>
+                <a href="https://wa.me/56993349975" target="_blank" class="text-white fs-3 social-icon"><i class="bi bi-whatsapp"></i></a>
+              </div>
+            </div>
+
+            <!-- Mapa del sitio -->
+            <div class="col-md-4 mb-4">
+              <h5 class="mb-3 text-center">Mapa del Sitio</h5>
+              <div class="d-flex justify-content-center">
+                <ul class="list-unstyled text-start">
+                  <li class="mb-2">
+                    <a href="/" class="enlace-footer">
+                      <i class="bi bi-house-door-fill me-2"></i>Inicio
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="/nosotros" class="enlace-footer">
+                      <i class="bi bi-people-fill me-2"></i>Nosotros
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="/productos" class="enlace-footer">
+                      <i class="bi bi-box-seam me-2"></i>Productos
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="/perfil" class="enlace-footer">
+                      <i class="bi bi-person-circle me-2"></i>Mi Perfil
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="/carrito" class="enlace-footer">
+                      <i class="bi bi-cart-fill me-2"></i>Carrito de Compras
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="/register" class="enlace-footer">
+                      <i class="bi bi-person-plus-fill me-2"></i>Registro
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Fin Mapa del sitio -->
+
+
+          </div>
+        </div>
+
+        <!-- Logo derecho -->
+        <div class="d-none d-lg-flex justify-content-center ms-5">
+          <div class="logo-animado-wrapper">
+            <img src="{{ url_for('static', filename='img/images.png') }}" alt="Logo derecha" class="logo-animado-footer">
+            <div class="logo-borde-superior"></div>
+            <div class="logo-borde-inferior"></div>
+            <div class="logo-borde-lateral-der"></div>
+          </div>
+        </div>
+
       </div>
+          
+    </div>
 
-      <!-- 🌐 Redes Sociales -->
-      <div class="col-md-4 mb-4 text-center">
-        <h5 class="mb-3">Síguenos</h5>
-        <a href="https://facebook.com" target="_blank" class="text-white fs-3 me-3"><i class="bi bi-facebook"></i></a>
-        <a href="https://instagram.com" target="_blank" class="text-white fs-3 me-3"><i class="bi bi-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank" class="text-white fs-3 me-3"><i class="bi bi-youtube"></i></a>
-        <a href="https://wa.me/56993349975" target="_blank" class="text-white fs-3"><i class="bi bi-whatsapp"></i></a>
+    <div class="container mt-4">
+      <div class="row text-center text-white-50 gy-3">
+        <div class="col-md-4">
+          <i class="bi bi-truck fs-2 text-primary"></i>
+          <p class="mt-2 mb-0">Despacho a todo Chile</p>
+        </div>
+        <div class="col-md-4">
+          <i class="bi bi-shield-lock-fill fs-2 text-primary"></i>
+          <p class="mt-2 mb-0">Compra segura y protegida</p>
+        </div>
+        <div class="col-md-4">
+          <i class="bi bi-award-fill fs-2 text-primary"></i>
+          <p class="mt-2 mb-0">Garantía de calidad ALLTAK</p>
+        </div>
       </div>
-
-      <!-- 🗺️ Mapa del sitio -->
-      <div class="col-md-4 mb-4 text-md-end text-center">
-        <h5 class="mb-3">Mapa del Sitio</h5>
-        <ul class="list-unstyled">
-          <li><a href="/" class="text-white text-decoration-none">Inicio</a></li>
-          <li><a href="/nosotros" class="text-white text-decoration-none">Nosotros</a></li>
-          <li><a href="/productos" class="text-white text-decoration-none">Productos</a></li>
-          <li><a href="/perfil" class="text-white text-decoration-none">Mi Perfil</a></li>
-          <li><a href="/carrito" class="text-white text-decoration-none">Carrito de Compras</a></li>
-          <li><a href="/register" class="text-white text-decoration-none">Registro</a></li>
-        </ul>
+      <hr class="border-white">
+      <div class="text-center text-white-50 small">
+        &copy; 2025 ALLTAK CHILE. Todos los derechos reservados.
       </div>
     </div>
 
-    <hr class="border-white mt-4">
-    <div class="text-center text-white-50 small"> 
-      <a>2025 ALLTAK CHILE. Todos los derechos reservados.</a>
+    <!-- 🔷 Línea decorativa azul inferior -->
+    <div class="linea-horizontal total abajo"></div>
+    <div class="modal fade" id="modalMapa" tabindex="-1" aria-labelledby="modalMapaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-primary border-2">
+          <!-- 🔷 Franja decorativa azul superior -->
+          <div style="height: 6px; background-color: #0d6efd; border-top-left-radius: 12px; border-top-right-radius: 12px;"></div>
+          <div class="modal-header">
+            <h5 class="modal-title d-flex align-items-center gap-2" id="modalMapaLabel">
+              <i class="bi bi-geo-alt-fill text-primary fs-5"></i>
+              Ubicación ALLTAK Chile
+            </h5>
+
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="ratio ratio-16x9">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.8786283551536!2d-70.6458426235427!3d-33.423038095025994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5912a48f2c1%3A0x6c4af927b787e179!2sIndependencia%201518%2C%20Santiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1721574900000!5m2!1ses-419!2scl"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+
+  
 </footer>

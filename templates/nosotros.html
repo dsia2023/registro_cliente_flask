@@ -32,53 +32,88 @@
 
 {% block content %}
 <div class="container mt-4">
+   <div class="bloque-nosotros p-4 rounded-4 shadow-lg text-white text-center"
+      style="background: linear-gradient(145deg, #082042, #0d3c6b); max-width: 1500px; min-height: 250px;">
+     <!-- Título -->
+      <h2 class="fw-bold mb-4 text-primary display-5">¿Quiénes Somos?</h2>
 
-  <!-- Título -->
-  <h2 class="text-center fw-bold mb-4">¿Quiénes Somos?</h2>
+      <!-- Texto institucional -->
+        <div class="mb-5">
+          <p class="text-justify">
+            Alltak, uno de los principales fabricantes del segmento de autoadhesivos de Brasil.
+          </p>
+          <p class="text-justify">
+            Se destaca una gran calidad de nuestros productos, texturas, innovación, nuevas tecnologías, moldeabilidad y sobre todo el brillo, lo que consolida la marca cada vez más en el segmento de países de América del Sur, América del Norte y Europa.
+          </p>
+          <p class="text-justify mt-4">
+            Además de su compromiso con sus clientes, Alltak se ha comprometido a construir un futuro sostenible para las nuevas generaciones y ha creado su Planta de Reciclaje. Otro avance sostenible en su historia.
+          </p>
+          <p class="text-justify">
+            Instalado en el interior de la propia fábrica, el Centro de Reciclaje procesa recortes y materiales comprados a otras empresas que se transforman para dar lugar a nuevos productos. Sus procesos son rigurosos y garantizan siempre la más alta calidad de los productos Alko®, una de las primeras empresas de plásticos de Brasil en tener un almacén interno dedicado al reciclaje y que siempre está a la vanguardia en temas de sustentabilidad.
+          </p>
+          <p class="text-justify">
+            El resultado es un ahorro anual de más de <strong>1.800 toneladas de insumos salvados de la naturaleza</strong>.
+          </p>
+        </div>
+    </div>   
 
-  <!-- Texto institucional -->
-  <div class="mb-5">
-    <p class="text-justify">
-      Alltak, uno de los principales fabricantes del segmento de autoadhesivos de Brasil.
-    </p>
-    <p class="text-justify">
-      Se destaca una gran calidad de nuestros productos, texturas, innovación, nuevas tecnologías, moldeabilidad y sobre todo el brillo, lo que consolida la marca cada vez más en el segmento de países de América del Sur, América del Norte y Europa.
-    </p>
-    <p class="text-justify mt-4">
-      Además de su compromiso con sus clientes, Alltak se ha comprometido a construir un futuro sostenible para las nuevas generaciones y ha creado su Planta de Reciclaje. Otro avance sostenible en su historia.
-    </p>
-    <p class="text-justify">
-      Instalado en el interior de la propia fábrica, el Centro de Reciclaje procesa recortes y materiales comprados a otras empresas que se transforman para dar lugar a nuevos productos. Sus procesos son rigurosos y garantizan siempre la más alta calidad de los productos Alko®, una de las primeras empresas de plásticos de Brasil en tener un almacén interno dedicado al reciclaje y que siempre está a la vanguardia en temas de sustentabilidad.
-    </p>
-    <p class="text-justify">
-      El resultado es un ahorro anual de más de <strong>1.800 toneladas de insumos salvados de la naturaleza</strong>.
-    </p>
-  </div>
+
+    <section id="valores" class="container my-5 text-center">
+      <h2 class="fw-bold mb-5 text-primary display-5">Nuestros Valores</h2>
+      <div class="row justify-content-center g-4">
+        {% for valor in valores %}
+        <div class="col-sm-6 col-md-4">
+          <div class="valor-cuadro">
+            <div class="icono-valor mb-3">
+              {% if valor.titulo == "Calidad" %}
+                <i class="bi bi-award"></i>
+              {% elif valor.titulo == "Compromiso" %}
+                <i class="bi bi-hand-thumbs-up"></i>
+              {% elif valor.titulo == "Innovación" %}
+                <i class="bi bi-lightbulb"></i>
+              {% elif valor.titulo == "Confianza" %}
+                <i class="bi bi-shield-check"></i>
+              {% elif valor.titulo == "Eficiencia" %}
+                <i class="bi bi-speedometer2"></i>
+              {% elif valor.titulo == "Pasión" %}
+                <i class="bi bi-heart-fill"></i>
+              {% else %}
+                <i class="bi bi-star"></i>
+              {% endif %}
+            </div>
+            <h5>{{ valor.titulo }}</h5>
+            <p>{{ valor.descripcion }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
 
   🔄 <!--Carrusel de bienvenida -->
-  <div id="carruselInicio" class="carousel slide carousel-fade carrusel-borde" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{ url_for('static', filename='img/slide1.jpg') }}" class="d-block w-100" alt="Slide 1">
-      
-    </div>
-    <div class="carousel-item">
-      <img src="{{ url_for('static', filename='img/slide2.jpg') }}" class="d-block w-100" alt="Slide 2">
-      
-    </div>
-    <div class="carousel-item">
-      <img src="{{ url_for('static', filename='img/slide3.jpg') }}" class="d-block w-100" alt="Slide 3">
-     
-    </div>
-  </div>
+      <div id="carruselInicio" class="carousel slide carousel-fade carrusel-borde" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{{ url_for('static', filename='img/slide1.jpg') }}" class="d-block w-100" alt="Slide 1">
+              
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='img/slide2.jpg') }}" class="d-block w-100" alt="Slide 2">
+              
+            </div>
+            <div class="carousel-item">
+              <img src="{{ url_for('static', filename='img/slide3.jpg') }}" class="d-block w-100" alt="Slide 3">
+            
+            </div>
+          </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+     </div>
 
 
 </div>
